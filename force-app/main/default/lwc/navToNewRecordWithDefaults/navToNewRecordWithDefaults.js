@@ -7,7 +7,7 @@ export default class NavToNewRecordWithDefaults extends NavigationMixin(
 ) {
     navigateToNewContactWithDefaults() {
         const defaultValues = encodeDefaultFieldValues({
-            AccountId: 'Miso',
+            AccountId: 'MisoO',
             Amount: 1000,
             
         });
