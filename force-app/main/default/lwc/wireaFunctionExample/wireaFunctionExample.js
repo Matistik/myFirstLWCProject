@@ -8,11 +8,8 @@ import { NavigationMixin } from 'lightning/navigation';
 import { encodeDefaultFieldValues } from 'lightning/pageReferenceUtils';
 import { getSObjectValue } from '@salesforce/apex';
 import { getRecord } from 'lightning/uiRecordApi';
-import Id from '@salesforce/Account/Id';
-import UserNameFld from '@salesforce/schema/User.Name';
-import userEmailFld from '@salesforce/schema/User.Email';
-import userIsActiveFld from '@salesforce/schema/User.IsActive';
-import userAliasFld from '@salesforce/schema/User.Alias';
+
+
 
 
 export default class wireaFunctionExample extends NavigationMixin(
@@ -40,21 +37,10 @@ export default class wireaFunctionExample extends NavigationMixin(
      @track searchTerm;
 
      
-    NAME_FIELD;
-     userId = Id;
+ 
      
      
-     error;
-     @wire(getRecord, { recordId: Id, fields: [NAME_FIELD]}) 
-     userDetails({error, data}) {
-         if (data) {
-             this.NAME_FIELD = data.fields.Name.value;
-             
-             console.log(this.NAME_FIELD);
-         } else if (error) {
-             this.error = error ;
-         }
-    }
+     
 
 
 
