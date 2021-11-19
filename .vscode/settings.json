@@ -1,0 +1,11 @@
+{
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/.sfdx": true
+  },
+  "salesforcedx-vscode-core.show-cli-success-msg": false,
+  "apexAutoComplete.instanceUrl": "https://parallaxis36-dev-ed.lightning.force.com",
+  "apexAutoComplete.password": "Lancer888",
+  "apexAutoComplete.userName": "mmatistik@parallaxis.skdev "
+}

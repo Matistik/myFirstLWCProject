@@ -1,0 +1,148 @@
+<!-- sldsValidatorIgnore -->
+<!-- sldsValidatorIgnore -->
+<!-- sldsValidatorIgnore -->
+<template > 
+
+    <lightning-card title="ApexStaticSchema" icon-name="custom:custom63">
+        <template if:true={contact.data}>
+            <div class="slds-m-around_medium">
+                <p>{name}</p>
+                
+                
+            </div>
+        </template>
+        <template if:true={contact.error}>
+            <c-error-panel errors={contact.error}></c-error-panel>
+        </template>
+    </lightning-card>
+
+
+    <lightning-card >
+             <h3 slot="title">
+                 <lightning-icon icon-name="standard:feed" title="feed" size="small"></lightning-icon>
+                 <strong class="space-icon-text">Obchodné príležitosti</strong>
+             </h3>
+             <div class="slds-p-around_medium lgc-bg"><p>DOMENA - PRODUKT</p></div>
+     <template if:true={accountRecord}>
+         <template slot="footer" for:each={accountRecord} for:item="item" for:index="index">
+        <div class="slds-box slds-theme_default" key={item.Id}>
+         
+         <table >
+             <tr>
+             <td class="slds-text-title_caps alignCenter">
+                 
+                 <lightning-breadcrumb label={item.Name} id={item.Id} onclick={handleNavigateTo}></lightning-breadcrumb>
+                 </td>
+
+                 
+
+              </tr>
+             <tr>
+                 <td>
+                     <lightning-icon icon-name="custom:custom11" title="custom11" size="small"></lightning-icon>
+                 </td>
+             <td>
+             <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small">
+                 <p>{item.Tag_1__c}</p>
+                  </div>
+                  </td>
+                  <td>
+             <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small">
+                 <p>{item.Tag_2__c}</p>
+                  </div>
+                  </td>
+                  <td>
+             <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small">
+                 <p>{item.Tag_3__c}</p>
+                  </div>
+                  </td>
+                  <td>
+             <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small">
+                 <p>{item.Tag_4__c}</p>
+                  </div>
+                  </td>
+
+                  <td class="slds-text-title_caps alignCenter">
+                 
+                    <lightning-breadcrumb label=opp id={item.Id} onclick={handleNavigateTo2}></lightning-breadcrumb>
+                    </td>
+
+                  <td>
+                     <lightning-button variant="brand-outline" label="Napíš komentár"  onclick={showModal} class="slds-m-left_x-small"></lightning-button>
+                    
+                     
+                     
+                     
+                     <lightning-button
+            name="new-with-defaults"
+            label="opportunity"
+            class="slds-var-m-around_medium"
+            onclick={navigateToNewContactWithDefaults}
+        ></lightning-button>
+                 </td>
+             </tr>
+             </table>
+               <template if:true={openModal}>
+         <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+             aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+             <div class="slds-modal__container">
+                 <div class="slds-modal__content slds-p-around_medium" id={item.id}>
+                     <lightning-input label="Comment" type="text" value={searchTerm} placeholder="enter comment" onchange={handleSearchTermChange}> ></lightning-input>
+                     
+                 </div>
+                 <footer class="slds-modal__footer">
+                     <lightning-button variant="brand-outline" label = "Close" onclick={closeModal} ></lightning-button>
+                     
+                     <lightning-button id ={item.id} class = "space-icon-text" variant="brand" label = "Save" onclick={saveModal}></lightning-button>
+                 </footer>
+             </div>
+         </section>
+         <div class="slds-backdrop slds-backdrop_open"></div>
+     </template>
+
+     <template if:true={openModalOpp}>
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+        aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+            <header class="slds-modal__header">
+                <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close">
+                <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                </svg>
+                <span class="slds-assistive-text">Close</span>
+                </button>
+                <h2  class="slds-modal__title slds-hyphenate">New Opportunity</h2>
+                
+                
+                
+
+                </p>
+            </header>
+            <div class="slds-modal__content slds-p-around_medium">
+                <div class="slds-text-align_center lgc-bgg">Opportunity Information
+                </div>
+
+                <lightning-record-form
+                     object-api-name={accountObject}
+                     fields={myFields}
+                     onsuccess={handleAccountCreated}>
+                 </lightning-record-form>
+
+            </div>
+            <footer class="slds-modal__footer">
+                <button class="slds-button slds-button_neutral">Cancel</button>
+                <button class="slds-button slds-button_brand">Save</button>
+            </footer>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+
+
+
+     </div>
+   
+ </template>
+ </template>
+ </lightning-card>
+ </template>

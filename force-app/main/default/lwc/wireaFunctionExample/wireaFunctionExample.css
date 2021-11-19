@@ -1,0 +1,21 @@
+.alignEnd{
+
+    align-items: end;
+}
+
+.alignCenter{
+
+    align-items: center!important;
+}
+
+.space-icon-text {
+    margin-left: 6px;
+}
+
+.lgc-bg {
+    background-color: rgb(242, 242, 242);
+}
+
+.lgc-bgg {
+    background-color: rgb(102, 102, 102);
+}
